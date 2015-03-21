@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'rails_12factor', group: :production
 
 group :development, :test do
 
