@@ -3,4 +3,4 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     scope: ['drive',
     'https://www.googleapis.com/auth/drive'],
     access_type: 'offline'}
-  end
+end
