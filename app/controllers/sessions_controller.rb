@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     # find or create user by auth[provider ]and auth[uid]
     # update user details
     # on the user, create a token like you're doing below
-    byebug
+    # byebug
     token = Tokens.create(
     user_id: user.id,
     access_token: @auth['token'],
