@@ -1,6 +1,6 @@
 == README
 
-- store user data from omniauth request
-- redirect to home page after succesful login
+-[x] store user data from omniauth request
+-[x] redirect to home page after succesful login
 - on home-page, if logged_in show spreadsheets
 - on home-page, if not logged_in, redirect to login page

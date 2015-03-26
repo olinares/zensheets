@@ -8,8 +8,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       # :image_size => 50,
       # :access_type => "offline"
 
-      scope: ['drive',
-      'https://www.googleapis.com/auth/userinfo.profile'],
+      scope: ['drive','https://www.googleapis.com/auth/userinfo.profile'],
       access_type: 'offline'
     }
 end
