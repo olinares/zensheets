@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
-  resources :sessions, only: :index
+  resources :sheets
+  root to: 'sheets#index'
+  resources :sessions, only: [:new, :create, :destroy]
+
   get "/auth/:provider/callback" => 'sessions#create'
   get "logout" => 'sessions#destroy'
 end

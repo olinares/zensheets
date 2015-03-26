@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
 
     if @user
       login_user @user
+      # create_or_update_user_token(auth_hash)
       redirect_to root_path
     else
       redirect_to root_path, notice:"There is an error"
@@ -26,7 +27,7 @@ class SessionsController < ApplicationController
   end
 
 
-  def create_or_update_user_token
+  def create_or_update_user_token(auth)
     # token = Tokens.create(
     # user_id: user.id,
     # access_token: @auth['token'],
@@ -36,5 +37,9 @@ class SessionsController < ApplicationController
 
   def auth_hash
     @auth ||= request.env['omniauth.auth'].to_hash
+    unless @auth.has_key?('uid') && @auth.has_key?('provider')
+      redirect_to root_path, notice: "Bad Auth, missing uid or provider"
+      return
+    end
   end
 end

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
+gem 'faraday'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'json'
