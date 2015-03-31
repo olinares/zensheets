@@ -2,7 +2,8 @@ require 'net/http'
 require 'json'
 
 class Token < ActiveRecord::Base
-
+  belongs_to :user
+  
   def to_params
     {
       'refresh_token' => refresh_token,

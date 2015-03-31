@@ -4,9 +4,9 @@ class SheetsController < ApplicationController
     if current_user
       @sheets = current_user.sheets
       # current_user is instance of User
-      @sheets_on_google = current_user.fetch_google_sheets
+      @google = current_user.google_sheets
     else
-      redirect_to login_path
+      redirect_to new_session_path
     end
   end
 end

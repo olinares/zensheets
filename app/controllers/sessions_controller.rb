@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user
       login_user @user
-      # create_or_update_user_token(auth_hash)
+      create_or_update_user_token(@user)
       redirect_to root_path
     else
       redirect_to root_path, notice:"There is an error"
@@ -27,12 +27,12 @@ class SessionsController < ApplicationController
   end
 
 
-  def create_or_update_user_token(auth)
-    # token = Tokens.create(
-    # user_id: user.id,
-    # access_token: @auth['token'],
-    # refresh_token: @auth['refresh_token'],
-    # expires_at: Time.at(@auth['expires_at']).to_datetime)
+  def create_or_update_user_token(user)
+    credentials = auth_hash['credentials']
+    user.tokens.create(
+    access_token: credentials['token'],
+    refresh_token: "no-refresh-token",
+    expires_at: Time.at(credentials['expires_at']).to_datetime)
   end
 
   def auth_hash
@@ -41,5 +41,6 @@ class SessionsController < ApplicationController
       redirect_to root_path, notice: "Bad Auth, missing uid or provider"
       return
     end
+    @auth
   end
 end

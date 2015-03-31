@@ -1,7 +1,7 @@
 <% if current_user %>
-<%= current_user.name %><%= link_to 'Logout', logout_path %>
+  <%= current_user.name %><%= link_to 'Logout', logout_path %>
 <% else %>
 
-<%= link_to "Authenticate with Google!", '/auth/google_oauth2' %>
+  <%= link_to "Authenticate with Google!", '/auth/google_oauth2' %>
 
 <% end %>

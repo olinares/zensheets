@@ -1,10 +1,7 @@
 class User < ActiveRecord::Base
   has_many :authorizations
   has_many :sheets
-
-  def self.create_from_hash!(hash)
-    create(:name => hash['user_info']['name'])
-  end
+  has_many :tokens
 
 # fetch_google_sheets
 
@@ -19,12 +16,24 @@ class User < ActiveRecord::Base
   #   # instance
   # end
 
-  def fetch_google_sheets
-    user = self
-    token = user.token
-    key = token.auth_key
-    Faraday.get("https://www.googleapis.com/drive/v2/files?key=#{}")
+  def current_token
+    tokens.last
   end
 
-  #
+  def fetch_google_sheets
+    user = self
+    token = user.current_token
+    bearer = token.access_token
+    key = "AIzaSyA9ihJ-_XoLFRX3jYIO4tRHxuz291rr0Jk"
+    response = Faraday.get("https://www.googleapis.com/drive/v2/files?key=#{key}") do |req|
+      req.headers['authorization'] = "Bearer #{bearer}"
+    end
+
+    JSON.parse(response.body)["items"]
+  end
+
+  def google_sheets
+    @gsheets ||= fetch_google_sheets
+  end
+
 end

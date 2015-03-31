@@ -6,7 +6,7 @@ class Authorization < ActiveRecord::Base
 
   # find or create user by auth[provider ]and auth[uid]
   def self.user_from_auth_hash(auth_hash)
-    auth = where(auth.slice("uid", "provider")).first_or_create
+    auth = where(auth_hash.slice("uid", "provider")).first_or_create
     if auth.user
       user = auth.user
     else
@@ -18,5 +18,5 @@ class Authorization < ActiveRecord::Base
     end
     user
   end
-  
+
 end

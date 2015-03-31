@@ -1,0 +1,9 @@
+<h1>inside sheets index</h1>
+<div>
+  <ul>
+  <% @google.each do |sheet| %>
+    <li>Sheet ID: <%= sheet["id"] %></li>
+    <li>Sheet Title: <%= sheet["title"] %></li><br/>
+  <% end %>
+</div>
+</ul>
