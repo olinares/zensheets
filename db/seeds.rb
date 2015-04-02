@@ -4,4 +4,7 @@
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+  Sheet.create(user_id: 3, url: 'http://www.gmail.com', name: 'Bacon ipsum dolor amet flank')
+  Sheet.create(user_id: 4, url: 'http://cnn.com', name: 'Drumstick short loin rump')
+  Sheet.create(user_id: 5, url: 'http://ilovebacon.it', name: 'Bacon prosciutto landjaeger')
+  Sheet.create(user_id: 6, url: 'http://morebacon.it', name: 'Corned beef leberkas ham cow')

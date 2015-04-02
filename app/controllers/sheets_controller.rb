@@ -9,4 +9,9 @@ class SheetsController < ApplicationController
       redirect_to new_session_path
     end
   end
+
+  def show
+    @sheets = Sheet.all
+    render json: @sheets
+  end
 end
