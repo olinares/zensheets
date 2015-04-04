@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'google_drive', '~> 1.0.0'
 gem 'rails', '4.2.0'
 gem 'faraday'
 gem 'omniauth'
@@ -23,4 +24,6 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'pry'
+  gem 'pry-rails'
 end

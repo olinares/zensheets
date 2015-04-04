@@ -9,6 +9,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       # :access_type => "offline"
 
       scope: [
+        'https://spreadsheets.google.com/feeds',
         'https://www.googleapis.com/auth/drive',
         'https://docs.google.com/feeds',
         'http://docs.google.com/feeds',

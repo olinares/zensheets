@@ -1,0 +1,15 @@
+<h1>sheet key</h1>
+
+<% @sheet["feed"]["entry"].each do |worksheet| %>
+  title: <%= worksheet["title"]['$t'] %><br>
+
+  <% worksheet["link"].each do |link| %>
+  <% if link["rel"] == "http://schemas.google.com/spreadsheets/2006#cellsfeed" %>
+    <% sheet_key_and_id =  link["href"].gsub("https://spreadsheets.google.com/feeds/cells/", "" ).gsub("/private/basic", "").split("/") %>
+    <%= sheet_key = sheet_key_and_id[0] %>
+    <%= worksheet_id =  sheet_key_and_id[1] %>
+    <%= link_to "Share this worksheet", worksheet_sheets_path(sheet_key, worksheet_id) %>
+    <% end %>
+  <% end %>
+<hr>
+<% end %>

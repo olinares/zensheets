@@ -1,9 +1,17 @@
-<h1>inside sheets index</h1>
+<h1>Your Zensheets!</h1>
 <div>
   <ul>
   <% @google.each do |sheet| %>
-    <li>Sheet ID: <%= sheet["id"] %></li>
-    <li>Sheet Title: <%= sheet["title"] %></li><br/>
+
+<% key = sheet["id"]["$t"].gsub("https://spreadsheets.google.com/feeds/spreadsheets/private/full/", '') %>
+    <li> ID: <%= link_to 'Share the Sheet', sheet_key_sheets_path(key)  %> <%= sheet["id"]["$t"] %></li>
+    <li>Title: <%= sheet["title"]["$t"] %></li>
+    <li>Author: <%= sheet["author"][0]['name']["$t"] %></li>
+    <li><%= sheet.inspect %></li>
   <% end %>
 </div>
 </ul>
+
+<% current_user.sheets.each do |zensheet| %>
+<%= zensheet.id %>
+<% end %>
