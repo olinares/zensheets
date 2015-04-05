@@ -25,6 +25,11 @@ class SheetsController < ApplicationController
   def worksheet
     if current_user
       @worksheet = current_user.fetch_google_worksheet(params[:sheet_key], params[:worksheet_id])
+      respond_to do |format|
+        format.html
+        format.json { render json: @worksheet }
+      end
+      # render json: @worksheet
     else
       redirect_to new_session_path
     end
@@ -41,4 +46,5 @@ class SheetsController < ApplicationController
     # @sheets = Sheet.all
     # render json: @sheets
   end
+
 end

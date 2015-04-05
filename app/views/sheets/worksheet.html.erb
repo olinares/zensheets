@@ -2,4 +2,6 @@
 
 
 <%= link_to "Confirm you wnat to share this worksheet?", sheets_path(params.slice(:sheet_key, :worksheet_id)), method: :post %>
-<%= @worksheet.inspect %>
+<h2> should look like https://gridspree.io/ss/smoHNhVspZzRqkPYuZD2Ka</h2>
+  <%= @worksheet.to_json  %>
+<hr>
