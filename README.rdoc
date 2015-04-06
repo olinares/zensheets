@@ -1,22 +1,7 @@
 == README
 
-# User Auth
+# ZenSheets - Free your Google Spreadsheets and Publish anywhere!
 
-- [x] store user data from omniauth request
+Use Google Spreadsheets as your Content Management System, Blob or any Web App!
 
-- [x] redirect to home page after succesful login
-
-- [x] on home-page, if logged_in show spreadsheets
-
-- [x] on home-page, if not logged_in, redirect to login page
-
-
-# Sheet to api
-
-- allow users to "convert sheet to api"
-
-- clicking on a sheet should go to the sheet "show"
-
-- sheet "show" has the api endpoint and example code for that sheet.
-
-- hitting api endpoint returns JSON for the sheet
+![Zensheets](image_tag("zensheetslogosmall.png"))
