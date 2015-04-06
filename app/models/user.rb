@@ -62,15 +62,7 @@ class User < ActiveRecord::Base
     }
   end
 
-
-
-  # lines.each do |values|
-  #   sheet.sheet_rows.create(Hash[keys.zip(values)])
-  # end
-
   def google_sheets
     @gsheets ||= fetch_google_sheets
   end
-
-
 end
