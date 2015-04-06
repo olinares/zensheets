@@ -9,8 +9,8 @@ RSpec.describe User, type: :model do
 
         ],
         rows: [
-          {first_name: "oscar", last_name: "linares", job: "Padawan"},
-          {first_name:"blair", last_name: "anderson", job: "Jedi"}
+          {"First Name" => "oscar", "Last Name" => "linares", "Job" => "Padawan"},
+          {"First Name" => "blair", "Last Name" => "anderson", "Job" => "Jedi"}
 
         ],
       }

@@ -35,19 +35,28 @@ class User < ActiveRecord::Base
   end
 
   def some_conversion_method(worksheet_hash)
-    headers = []
-    worksheet_hash.each do |stuff|
-      # if something
-      #   headers << stuff
-      # end
+    table = {}
+    worksheet_hash["feed"]["entry"].each do |entry|
+      title = entry["title"]
+      content = entry["content"]
+      col_row = title["$t"].match(/^([A-Z*])(\d*)$/)
+
+      table[col_row[2]] ||= []
+      table[col_row[2]].push(content["$t"])
     end
 
+    headers = table.delete("1")
     rows = []
-    worksheet_hash.map do |stuff|
-      # morestuff
+    table.values.each do |row|
+      result = {}
+      row.each_with_index do |item, index|
+        # classify the item
+        result[headers[index]] = item.strip
+      end
+      rows << result
     end
 
-    {
+    return {
       headers: headers,
       rows: rows,
     }
