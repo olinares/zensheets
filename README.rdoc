@@ -1,7 +1,7 @@
 == README
 
-# ZenSheets - Free your Google Spreadsheets and Publish anywhere!
+##  ZenSheets - Free your Google Spreadsheets and Publish anywhere!
 
 Use Google Spreadsheets as your Content Management System, Blob or any Web App!
 
-![Zensheets](image_tag("zensheetslogosmall.png"))
+![Zensheets](/images/zensheetslogosmall.png)
