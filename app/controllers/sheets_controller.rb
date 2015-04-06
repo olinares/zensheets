@@ -23,8 +23,11 @@ class SheetsController < ApplicationController
   end
 
   def worksheet
+
     if current_user
-      @worksheet = current_user.fetch_google_worksheet(params[:sheet_key], params[:worksheet_id])
+      # @worksheet = json_parse_conversion(current_user.fetch_google_worksheet)
+      worksheet = current_user.fetch_google_worksheet(params[:sheet_key], params[:worksheet_id])
+      @worksheet = current_user.some_conversion_method(worksheet)
       respond_to do |format|
         format.html
         format.json { render json: @worksheet }
@@ -34,6 +37,11 @@ class SheetsController < ApplicationController
       redirect_to new_session_path
     end
   end
+
+  # def json_parse_conversion(worksheet)
+  #   @worksheet.each do |key, value|
+  #
+  # end
 
   def show
     @sheet = current_user.fetch_google_sheet_by_id(params[:id])

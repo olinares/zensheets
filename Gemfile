@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'json_spec', '~> 1.1.4'
 gem 'rails', '4.2.0'
 gem 'faraday'
 gem 'omniauth'
@@ -25,4 +26,5 @@ group :development, :test do
   gem 'spring'
   gem 'pry'
   gem 'pry-rails'
+  gem 'rspec-rails'
 end

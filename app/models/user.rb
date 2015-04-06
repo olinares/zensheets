@@ -3,19 +3,6 @@ class User < ActiveRecord::Base
   has_many :sheets
   has_many :tokens
 
-  # fetch_google_sheets
-
-  # To call a method on an instance... you must define the instance method
-  # To call a method on a CLASS... you must define a CLASS method....
-
-  # def self.method_name
-  #   # class
-  # end
-  #
-  # def method_name
-  #   # instance
-  # end
-
   def current_token
     tokens.last
   end
@@ -45,6 +32,25 @@ class User < ActiveRecord::Base
   def fetch_google_worksheet(sheet_key, worksheet_id)
     url = "https://spreadsheets.google.com/feeds/cells/#{sheet_key}/#{worksheet_id}/private/basic?alt=json"
     response = fetch(url)
+  end
+
+  def some_conversion_method(worksheet_hash)
+    headers = []
+    worksheet_hash.each do |stuff|
+      # if something
+      #   headers << stuff
+      # end
+    end
+
+    rows = []
+    worksheet_hash.map do |stuff|
+      # morestuff
+    end
+
+    {
+      headers: headers,
+      rows: rows,
+    }
   end
 
 
