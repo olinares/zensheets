@@ -1,3 +1,4 @@
+ruby '2.1.0'
 source 'https://rubygems.org'
 
 gem 'json_spec', '~> 1.1.4'
