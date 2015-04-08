@@ -7,9 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'components/top_navigation' %>
-  <div class="container">
-    <%= yield %>
+  <div class"container-fluid">
+    <%= render 'components/top_navigation' %>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <%= image_tag 'zensheetslogosmall.png' %>
+      </div>
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>

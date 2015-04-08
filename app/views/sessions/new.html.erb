@@ -1,7 +1,16 @@
-<% if current_user %>
-  <%= current_user.name %><%= link_to 'Logout', logout_path %>
-<% else %>
-<center><div class="row" "fa fa-flag fa-2x pull-left">
-  <center><%= link_to "Get your Google sheets!", '/auth/google_oauth2' %></center>
-</div></center>
-  <% end %>
+
+<br>
+<br>
+<br>
+<div class="row header">
+  <div class="col-xs-12 text-center">
+    <h1>Use Google Spreadsheets any way you want!</h1>
+    <p class="lead">Display your spreadsheet data right on your static site.</p>
+    <h1>&nbsp;</h1>
+    <div class="btn btn-primary btn-lg">
+      <%= link_to "Get your Google sheets!", "/auth/google_oauth2" %>
+      <span class="glyphicon glyphicon-cloud-download">
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,22 @@
-<h1>sheet key</h1>
-
-<% @sheet["feed"]["entry"].each do |worksheet| %>
-  title: <%= worksheet["title"]['$t'] %><br>
-
-  <% worksheet["link"].each do |link| %>
-  <% if link["rel"] == "http://schemas.google.com/spreadsheets/2006#cellsfeed" %>
-    <% sheet_key_and_id =  link["href"].gsub("https://spreadsheets.google.com/feeds/cells/", "" ).gsub("/private/basic", "").split("/") %>
-    <%= sheet_key = sheet_key_and_id[0] %>
-    <%= worksheet_id =  sheet_key_and_id[1] %>
-    <%= link_to "Share this worksheet", worksheet_sheets_path(sheet_key, worksheet_id) %>
-    <% end %>
-  <% end %>
-<hr>
-<% end %>
+<div class="col-lg-12">
+  <div class="row centered">
+    <div class="col-md-4">
+      <h1>Choose a Worksheet</h1>
+      <ul>
+        <% @sheet["feed"]["entry"].each do |worksheet| %>
+        <li>Worksheet Title: <%= worksheet["title"]['$t'] %></li><br>
+        <% worksheet["link"].each do |link| %>
+        <% if link["rel"] == "http://schemas.google.com/spreadsheets/2006#cellsfeed" %>
+        <% sheet_key_and_id =  link["href"].gsub("https://spreadsheets.google.com/feeds/cells/", "" ).gsub("/private/basic", "").split("/") %>
+        <!--<li>Worksheet ID: <%= sheet_key = sheet_key_and_id[0] %></li> -->
+        <!--<%= worksheet_id =  sheet_key_and_id[1] %> -->
+        <div class="btn btn-primary btn-lg">
+          <%= link_to "JSON Goodness", worksheet_sheets_path(sheet_key, worksheet_id) %>
+          <% end %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

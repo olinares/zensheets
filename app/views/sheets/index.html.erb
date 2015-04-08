@@ -1,17 +1,22 @@
-<h1>Your Zensheets!</h1>
-<div>
-  <ul>
-  <% @google.each do |sheet| %>
+<div class="col-lg-12">
+  <div class="row centered">
+    <div class="col-md-4">
+      <h1>Choose Your ZenSheet!</h1>
+      <ul>
+        <% @google.each do |sheet| %>
+        <hr>
+        <% key = sheet["id"]["$t"].gsub("https://spreadsheets.google.com/feeds/spreadsheets/private/full/", '') %>
+        <li>Sheet Title: <%= sheet["title"]["$t"] %></li>
+        <li>Author: <%= sheet["author"][0]['name']["$t"] %></li>
+        <div class="btn btn-primary btn-lg">
+          <%= link_to 'Get your Worksheets', sheet_key_sheets_path(key)  %>
+        </div>
+          <% end %>
+      </ul>
 
-<% key = sheet["id"]["$t"].gsub("https://spreadsheets.google.com/feeds/spreadsheets/private/full/", '') %>
-    <li> ID: <%= link_to 'Share the Sheet', sheet_key_sheets_path(key)  %> <%= sheet["id"]["$t"] %></li>
-    <li>Title: <%= sheet["title"]["$t"] %></li>
-    <li>Author: <%= sheet["author"][0]['name']["$t"] %></li>
-    <li><%= sheet.inspect %></li>
-  <% end %>
+      <% current_user.sheets.each do |zensheet| %>
+      <%= zensheet.id %>
+      <% end %>
+    </div>
+  </div>
 </div>
-</ul>
-
-<% current_user.sheets.each do |zensheet| %>
-<%= zensheet.id %>
-<% end %>

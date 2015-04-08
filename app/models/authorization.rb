@@ -11,7 +11,7 @@ class Authorization < ActiveRecord::Base
       user = auth.user
     else
       # create a user
-      user = User.create({name: "Blair is awesome"})
+      user = User.create({name: "You are logged in"})
       # put the user.id into the auth object.(create relationship between auth and user)
       auth.user_id = user.id
       auth.save
