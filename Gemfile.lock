@@ -68,6 +68,8 @@ GEM
     execjs (2.4.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hashie (3.4.1)
@@ -211,6 +213,7 @@ DEPENDENCIES
   coffee-rails
   dotenv-rails
   faraday
+  font-awesome-rails
   jquery-rails
   omniauth
   omniauth-google-oauth2
